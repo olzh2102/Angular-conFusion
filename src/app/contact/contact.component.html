@@ -43,17 +43,33 @@
 
         <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
           <p>
-            <md-input-container class="half-width">
+            <md-input-container class="half-width"
+              dividerColor="{{(feedbackForm.get('firstname').hasError('required') && feedbackForm.get('firstname').touched) ? 'warn' : 'primary'}}">
               <input type="text" mdInput formControlName="firstname" placeholder="First Name" required>
+              <md-hint>
+                <span [hidden]="!(feedbackForm.get('firstname').hasError('required') && feedbackForm.get('firstname').touched)">Firstname is required</span>
+              </md-hint>
             </md-input-container>
-            <md-input-container class="half-width">
+            <md-input-container class="half-width"
+              dividerColor="{{(feedbackForm.get('lastname').hasError('required') && feedbackForm.get('lastname').touched) ? 'warn' : 'primary'}}">
               <input type="text" mdInput formControlName="lastname" placeholder="Last Name" required>
+              <md-hint>
+                <span [hidden]="!(feedbackForm.get('lastname').hasError('required') && feedbackForm.get('lastname').touched)">Lastname is required</span>
+              </md-hint>
             </md-input-container>
-            <md-input-container class="half-width">
+            <md-input-container class="half-width"
+              dividerColor="{{(feedbackForm.get('telnum').hasError('required') && feedbackForm.get('telnum').touched) ? 'warn' : 'primary'}}">
               <input type="tel" mdInput formControlName="telnum" placeholder="Tel. Number" required>
+              <md-hint>
+                <span [hidden]="!(feedbackForm.get('telnum').hasError('required') && feedbackForm.get('telnum').touched)">Tel. number is required</span>
+              </md-hint>
             </md-input-container>
-            <md-input-container class="half-width">
+            <md-input-container class="half-width"
+              dividerColor="{{(feedbackForm.get('email').hasError('required') && feedbackForm.get('email').touched) ? 'warn' : 'primary'}}">
               <input type="email" mdInput formControlName="email" placeholder="E-mail" required>
+              <md-hint>
+                <span [hidden]="!(feedbackForm.get('email').hasError('required') && feedbackForm.get('email').touched)">E-mail is required</span>
+              </md-hint>
             </md-input-container>
           </p>
 
@@ -74,7 +90,7 @@
             </md-input-container>
           </p>
 
-          <button type="submit" md-button class="background-primary text-floral-white">Submit</button>
+          <button type="submit" md-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">Submit</button>
         </form>
       </div>
 </div>
