@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NoConflictStyleCompatibilityMode } from '@angular/material';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -28,6 +29,9 @@ import { LeaderService } from './services/leader.service';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
 
+import { baseURL } from './shared/baseurl';
+import { ProcessHttpmsgService } from './services/process-httpmsg.service';
+
 
 
 @NgModule({
@@ -54,7 +58,9 @@ import { LoginComponent } from './login/login.component';
   ],
   providers: [ DishService,
       PromotionService,
-      LeaderService ],
+      LeaderService,
+      { provide: 'BaseURL', useValue: baseURL },
+      ProcessHttpmsgService ],
   entryComponents: [
     LoginComponent
   ],
