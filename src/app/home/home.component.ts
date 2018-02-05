@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     this.promotionservice.getFeaturedPromotion()
       .subscribe(promotion => this.promotion = promotion);
 
-    this.leaderservice.getFeaturedDLeader()
+    this.leaderservice.getFeaturedLeader()
       .subscribe(leader => this.leader = leader);
   }
 
