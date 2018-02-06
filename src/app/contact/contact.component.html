@@ -96,7 +96,7 @@
     </form>
   </div>
 
-  <div [hidden]="(submittedFeedbackData || showForm)" [@expand]="expand">
+  <div [hidden]="(submittedFeedbackData || showForm)">
     <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
   </div>
   <div *ngIf="submittedFeedbackData" [@expand]="expand">
